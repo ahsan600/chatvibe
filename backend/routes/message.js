@@ -15,7 +15,7 @@ router.post(
   }
 );
 router.post(
-  "/userchat",
+  "/chat",
 
   async (req, res) => {
     try {
