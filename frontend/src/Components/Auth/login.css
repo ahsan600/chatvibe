@@ -1,0 +1,135 @@
+.contain {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  .right-login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  .separate {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .sep {
+      height: 80%;
+      border: 1px solid;
+    }
+  }
+  .left-login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        margin: 20px;
+      }
+      .username,
+      .email,
+      .password,
+      .image {
+        padding: 10px;
+        display: flex;
+
+        flex-direction: column;
+        label {
+          margin-left: 10px;
+          margin-bottom: 5px;
+        }
+      }
+      .image {
+        align-items: center;
+        label:hover {
+          transform: scale(1.1);
+        }
+        img {
+          margin: 5px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      .user-icon,
+      .email-icon,
+      .pass-icon {
+        display: flex;
+
+        i {
+          padding: 20px;
+          border: 0;
+          display: flex;
+          align-items: center;
+          height: 30px;
+          color: black;
+          background-color: white;
+          border-radius: 10px 0px 0px 10px;
+        }
+        input {
+          flex: 1;
+          padding: 20px;
+          border: 0;
+          color: black;
+          background-color: white;
+          outline: none;
+          border-radius: 0px 10px 10px 0px;
+          width: 250px;
+          height: 30px;
+          font-size: 15px;
+        }
+
+        input::placeholder {
+          margin-left: 10px;
+        }
+      }
+      .login-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        button {
+          font-size: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          padding: 20px;
+          border: 0;
+          width: 250px;
+          height: 30px;
+          border-radius: 10px;
+          background-color: #57b846;
+        }
+      }
+    }
+    .createaccout {
+      /* flex: 1; */
+      height: 50px;
+      display: flex;
+      align-items: center;
+      /* al */
+      p {
+        user-select: none;
+      }
+      p:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+.chat {
+  flex: 2;
+  border-left: 1px solid rgba(255, 255, 255, 0.316);
+  border-right: 1px solid rgba(255, 255, 255, 0.316);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .top {
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.316);
+    padding: 20px;
+    .userdetail {
+      flex: 1;
+      gap: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .text {
+        span {
+          font-size: 14px;
+        }
+        p {
+          margin-top: 2px;
+          font-size: 10px;
+        }
+      }
+    }
+    .icons {
+      display: flex;
+      justify-content: flex-end;
+
+      width: 15px;
+      height: 15px;
+      gap: 20px;
+    }
+  }
+  .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 20px;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.04);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.04);
+    .message {
+      max-width: 70%;
+      display: flex;
+      gap: 20px;
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        img {
+          width: 100%;
+          height: 300px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+        p {
+          padding: 10px;
+          border-radius: 10px;
+          background-color: rgba(62, 75, 92, 0.6);
+          font-size: 11px;
+        }
+        span {
+          font-size: 10px;
+          padding: 5px;
+        }
+      }
+      &.own {
+        align-self: flex-end;
+
+        .text {
+          p {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 115, 255, 0.6);
+            font-size: 11px;
+          }
+          span {
+            font-size: 10px;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.316);
+    display: flex;
+
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.04);
+      outline: none;
+      border: 0;
+    }
+    .emoji {
+      position: relative;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+      .picker {
+        position: absolute;
+
+        right: 0;
+        left: 0;
+        bottom: 50px;
+      }
+    }
+    .send {
+      button {
+        color: white;
+        background-color: rgba(0, 183, 255, 0.846);
+        border-radius: 10px;
+        border: 0;
+        outline: none;
+        width: 45px;
+        height: 35px;
+      }
+    }
+  }
+}
