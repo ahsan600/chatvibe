@@ -5,13 +5,26 @@ import MessageContext from "../../../Context/MessageContext/MessageContext";
 function Detail() {
   const [sharedphoto, setSharedPhoto] = useState(false);
   const { logout } = useContext(AuthContext);
-
+  const { receiverUserData, resetAllState } = useContext(MessageContext);
+  const HandleLogoutChange = () => {
+    logout();
+    setTimeout(() => {
+      resetAllState();
+    }, 2000);
+  };
   return (
     <div className="detail">
       <div className="userdetail">
-        <img src="../public/avatar.png" alt="" />
-        <h3>Muhammad Ahsan</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <img
+          src={
+            receiverUserData.userImage
+              ? receiverUserData.userImage
+              : "../public/avatar.png"
+          }
+          alt=""
+        />
+        <h3>{receiverUserData.username}</h3>
+        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}
       </div>
       <div className="setting">
         <div className="chatsetting">
@@ -48,7 +61,7 @@ function Detail() {
           <button>Block User</button>
         </div>
         <div className="logout">
-          <button onClick={() => logout()}>Logout </button>
+          <button onClick={HandleLogoutChange}>Logout </button>
         </div>
       </div>
     </div>

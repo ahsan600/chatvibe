@@ -6,18 +6,12 @@ const userChat = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  receiveid: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
+
   message: [
     {
-      message: {
-        type: String,
-      },
-
-      isMined: {
-        type: Boolean,
+      receiveid: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
       },
     },
   ],

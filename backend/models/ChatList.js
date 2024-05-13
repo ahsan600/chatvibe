@@ -8,20 +8,12 @@ const chatList = new Schema({
   },
   chatList: [
     {
-      chatid: {
+      adduserid: {
         type: Schema.Types.ObjectId,
         ref: "User",
       },
-      receiverid: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-      message: {
-        type: String,
-      },
-      isMined: {
-        type: Boolean,
-      },
+      username: String,
+      userImage: String,
     },
   ],
 });

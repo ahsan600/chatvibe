@@ -15,6 +15,7 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", require("./routes/auth.js"));
+app.use("/api/message", require("./routes/message.js"));
 app.listen(3000, () => {
   console.log("Server is Listening on 3000");
 });

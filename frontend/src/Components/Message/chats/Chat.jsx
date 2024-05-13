@@ -6,7 +6,7 @@ function Chat() {
   const [openEmoji, setOpenEmoji] = useState(false);
   const [msg, setMsg] = useState("");
   const endRef = useRef(null);
-  const { getDetail } = useContext(MessageContext);
+  const { getDetail, receiverUserData } = useContext(MessageContext);
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -14,10 +14,17 @@ function Chat() {
     <div className="chat">
       <div className="top">
         <div className="userdetail">
-          <img src="../public/avatar.png" alt="" />
+          <img
+            src={
+              receiverUserData.userImage
+                ? receiverUserData.userImage
+                : "../public/avatar.png"
+            }
+            alt=""
+          />
           <div className="text">
-            <span>Muhammad Ahsan</span>
-            <p>Lorem asdjhaskd aksjdhkasgdf kjashd</p>
+            <span>{receiverUserData.username}</span>
+            {/* <p>Lorem asdjhaskd aksjdhkasgdf kjashd</p> */}
           </div>
         </div>
         <div className="icons">
@@ -52,77 +59,7 @@ function Chat() {
             <span>1 min ago</span>
           </div>
         </div>
-        <div className="message">
-          <img src="../public/avatar.png" alt="" />
-          <div className="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
-              soluta dicta molestias dolores quae doloribus consectetur nobis
-              distinctio, delectus doloremque similique quisquam consequuntur
-              illum provident possimus, et dolorem amet quo!
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
-        <div className="message own">
-          <div className="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reprehenderit officia, ratione dicta corrupti ipsa iste nam quod
-              vero corporis aut autem deleniti nostrum magnam fugit error cumque
-              temporibus amet doloribus.
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
-        <div className="message">
-          <img src="../public/avatar.png" alt="" />
-          <div className="text">
-            <img src="../public/avatar.png" alt="" />
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
-              soluta dicta molestias dolores quae doloribus consectetur nobis
-              distinctio, delectus doloremque similique quisquam consequuntur
-              illum provident possimus, et dolorem amet quo!
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
-        <div className="message own">
-          <div className="text">
-            <img src="../public/avatar.png" alt="" />
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reprehenderit officia, ratione dicta corrupti ipsa iste nam quod
-              vero corporis aut autem deleniti nostrum magnam fugit error cumque
-              temporibus amet doloribus.
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
-        <div className="message">
-          <img src="../public/avatar.png" alt="" />
-          <div className="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
-              soluta dicta molestias dolores quae doloribus consectetur nobis
-              distinctio, delectus doloremque similique quisquam consequuntur
-              illum provident possimus, et dolorem amet quo!
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
-        <div className="message own">
-          <div className="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reprehenderit officia, ratione dicta corrupti ipsa iste nam quod
-              vero corporis aut autem deleniti nostrum magnam fugit error cumque
-              temporibus amet doloribus.
-            </p>
-            <span>1 min ago</span>
-          </div>
-        </div>
+
         <div ref={endRef}></div>
       </div>
       <div className="bottom">
