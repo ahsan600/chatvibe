@@ -52,15 +52,17 @@ router.post("/searchuser", validateToken, async (req, res) => {
     const { username } = req.body;
 
     const findUsername = await User.findOne({ username });
+
     let checkUsersList = await ChatList.findOne({
       "chatList.username": username,
       userid: req.user,
     });
-    if (findUsername.id == req.user) {
-      return res.json({ message: "User Not Found" });
-    }
+
     if (checkUsersList) {
       return res.json({ message: "User Already In Chat" });
+    }
+    if (findUsername?.id == req.user) {
+      return res.json({ message: "User Not Found" });
     }
     if (!findUsername) {
       res.json({ message: "User Not Found" });
@@ -80,7 +82,7 @@ router.post("/adduser", validateToken, async (req, res) => {
   try {
     const { adduserid, username, userImage } = req.body;
     let findUserList = await ChatList.findOne({ userid: req.user });
-    console.log(req.user);
+
     findUserList.chatList.push({
       adduserid: adduserid,
       username: username,

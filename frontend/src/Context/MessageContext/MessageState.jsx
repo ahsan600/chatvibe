@@ -77,6 +77,13 @@ function MessageState(props) {
     setChatList([]);
     setSeacrhUserValue(null);
   };
+  const SortListChat = (name) => {
+    const sortChatList = chatList.filter((result) => {
+      console.log(result.username.toLowerCase().includes(name.toLowerCase()));
+      return result.username.toLowerCase().includes(name.toLowerCase());
+    });
+    return sortChatList;
+  };
   return (
     <MessageContext.Provider
       value={{
@@ -93,6 +100,7 @@ function MessageState(props) {
         AddUserDetail,
         resetAllState,
         receiverUserData,
+        SortListChat,
       }}
     >
       {props.children}

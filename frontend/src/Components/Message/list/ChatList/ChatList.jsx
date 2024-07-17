@@ -3,6 +3,7 @@ import "./ChatList.css";
 import MessageContext from "../../../../Context/MessageContext/MessageContext";
 function ChatList() {
   const [addUser, setAddUser] = useState(false);
+  const [sortList, setSortList] = useState(null);
   const {
     getMessages,
     SearchUserDetail,
@@ -10,6 +11,7 @@ function ChatList() {
     getChatList,
     seacrhUserValue,
     AddUserDetail,
+    SortListChat,
   } = useContext(MessageContext);
   useEffect(() => {
     getChatList();
@@ -24,12 +26,16 @@ function ChatList() {
     setAddUser((pv) => !pv);
     AddUserDetail(seacrhUserValue);
   };
-
+  const HandleSortList = (e) => {
+    const sortList = SortListChat(e.target.value);
+    setSortList(sortList);
+  };
   return (
     <div className="chatslist">
       <div className="searchUser">
+      div
         <img src="../public/search.png" alt="" />
-        <input type="" placeholder="Search" />
+        <input type="" placeholder="Search" onChange={HandleSortList} />
         <div className="adduser">
           <img
             src={addUser ? "../public/minus.png" : "../public/plus.png"}
@@ -76,26 +82,55 @@ function ChatList() {
         </div>
       )}
 
-      {chatList.map((result) => (
-        <div
-          key={result.adduserid}
-          className="item"
-          onClick={() => getMessages(result)}
-        >
-          <img
-            src={result.userImage ? result.userImage : "../public/avatar.png"}
-            alt=""
-          />
-
-          <div className="text">
-            <span>{result.username}</span>
-            {/* <div className="textMine">
-              {result.isMine && <p>You:</p>}
-              <p>{result.message}</p>
-            </div> */}
-          </div>
-        </div>
-      ))}
+      {sortList
+        ? sortList.map((result) => (
+            <div
+              key={result.adduserid}
+              className="item"
+              onClick={() => {
+                setSortList(null);
+                getMessages(result);
+              }}
+            >
+              <img
+                src={
+                  result.userImage ? result.userImage : "../public/avatar.png"
+                }
+                alt=""
+              />
+              <div className="text">
+                <span>{result.username}</span>
+                {/* <div className="textMine">
+          {result.isMine && <p>You:</p>}
+          <p>{result.message}</p>
+        </div> */}
+              </div>
+            </div>
+          ))
+        : chatList.map((result) => (
+            <div
+              key={result.adduserid}
+              className="item"
+              onClick={() => {
+                setSortList(null);
+                getMessages(result);
+              }}
+            >
+              <img
+                src={
+                  result.userImage ? result.userImage : "../public/avatar.png"
+                }
+                alt=""
+              />
+              <div className="text">
+                <span>{result.username}</span>
+                {/* <div className="textMine">
+          {result.isMine && <p>You:</p>}
+          <p>{result.message}</p>
+        </div> */}
+              </div>
+            </div>
+          ))}
     </div>
   );
 }
